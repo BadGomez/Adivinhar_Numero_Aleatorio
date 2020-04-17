@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Adivinhar_Numero_Aleatorio</string>
+    <string name="botão_tentar">Tentar</string>
+    <string name="app_inst">Escolha um numero de 0 a 10</string>
+    <string name="Resultado_Texto">O Resultado está:</string>
+    <string name="Numero_tentativas">Tentativas:</string>
+</resources>
