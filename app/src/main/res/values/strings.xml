@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Adivinhar_Numero_Aleatorio</string>
     <string name="botão_tentar">Try</string>
-    <string name="app_inst">Choose a number from 0 to 10</string>
+    <string name="app_inst">Choose a number from 1 to 10</string>
     <string name="Resultado_Texto">The Result is:</string>
     <string name="Numero_tentativas">Attempts:</string>
     <string name="TentativaNumero">Number</string>
     <string name="Numero_necessario">Number is required.</string>
-    <string name="Intervalor_numero_permitido">It must be a value between 0 and 10;</string>
+    <string name="Intervalor_numero_permitido">It must be a value between 1 and 10;</string>
     <string name="Resposta_Correta">"You Won! "</string>
     <string name="Resposta_Errada">Try Again!</string>
 </resources>
