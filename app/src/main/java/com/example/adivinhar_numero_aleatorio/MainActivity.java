@@ -25,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
     int numerotentativas;
     public void TentarNumero (View view){
-        Intent intent = new Intent(this, MainActivity.class);
-
         TextInputEditText TextInputEditNumeroRandom = (TextInputEditText) findViewById(R.id.TextInputEditNumeroRandom);
         TextView TextViewResultado = (TextView) findViewById(R.id.textViewResultado);
         TextView TextViewNumeroTentativas = (TextView) findViewById(R.id.textViewNumeroTentativas);
