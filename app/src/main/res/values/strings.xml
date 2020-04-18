@@ -6,7 +6,7 @@
     <string name="Numero_tentativas">Attempts:</string>
     <string name="TentativaNumero">Number</string>
     <string name="Numero_necessario">Number is required.</string>
-    <string name="Intervalor_numero_permitido">" It must be a value between 0 and 10;"</string>
+    <string name="Intervalor_numero_permitido">It must be a value between 0 and 10;</string>
     <string name="Resposta_Correta">"You Won! "</string>
     <string name="Resposta_Errada">Try Again!</string>
 </resources>
