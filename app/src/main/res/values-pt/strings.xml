@@ -5,4 +5,9 @@
     <string name="app_inst">Escolha um numero de 0 a 10</string>
     <string name="Resultado_Texto">O Resultado está:</string>
     <string name="Numero_tentativas">Tentativas:</string>
+    <string name="TentativaNumero">Número</string>
+    <string name="Numero_necessario">Número necessário</string>
+    <string name="Intervalor_numero_permitido">Tem que ser um valor entre 0 e 10;</string>
+    <string name="Resposta_Correta">Acertou!</string>
+    <string name="Resposta_Errada">Tente Novamente!</string>
 </resources>
