@@ -14,9 +14,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    private Random random = new Random();
-    private int numeroAdivinhar = random.nextInt(10) + 1;
-
+    private int numeroAdivinhar = NumerosAleatorios.proximoNumero();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
