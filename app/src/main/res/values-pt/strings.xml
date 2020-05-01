@@ -9,5 +9,6 @@
     <string name="Numero_necessario">Número necessário</string>
     <string name="Intervalor_numero_permitido">Tem que ser um valor entre 1 e 10;</string>
     <string name="Resposta_Correta">Acertou!</string>
-    <string name="Resposta_Errada">Tente Novamente!</string>
+    <string name="Numero_Maior">Número Maior!</string>
+    <string name="Número_Menor">Número Menor!</string>
 </resources>

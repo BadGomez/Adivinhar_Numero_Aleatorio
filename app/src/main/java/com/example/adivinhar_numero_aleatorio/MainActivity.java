@@ -1,5 +1,6 @@
 package com.example.adivinhar_numero_aleatorio;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -21,8 +22,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    static final String STATE_NUMEROADIVINHAR = "numeroAdivinhar";
+    static final String STATE_NUMEROTENTATIVAS = "numeroTentativas";
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
+        savedInstanceState.putInt(STATE_NUMEROADIVINHAR, numeroAdivinhar);
+        savedInstanceState.putInt(STATE_NUMEROTENTATIVAS, numerotentativas);
+
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    public void onRestoreInstanceState(Bundle savedInstanceState){
+        super.onRestoreInstanceState(savedInstanceState);
+
+        numeroAdivinhar = savedInstanceState.getInt(STATE_NUMEROADIVINHAR);
+        numerotentativas = savedInstanceState.getInt(STATE_NUMEROTENTATIVAS);
+    }
+
     int numerotentativas;
-    public void TentarNumero (View view){
+    public void TentarNumero (View view) {
         TextInputEditText TextInputEditNumeroRandom = (TextInputEditText) findViewById(R.id.TextInputEditNumeroRandom);
         TextView TextViewResultado = (TextView) findViewById(R.id.textViewResultado);
         TextView TextViewNumeroTentativas = (TextView) findViewById(R.id.textViewNumeroTentativas);
@@ -33,27 +52,33 @@ public class MainActivity extends AppCompatActivity {
         int tentativa;
         try {
             tentativa = Integer.parseInt(strTentativa);
-            }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             TextInputEditNumeroRandom.setError(getString(R.string.Numero_necessario));
             TextInputEditNumeroRandom.requestFocus();
             return;
         }
 
-        if(tentativa > 10 || tentativa <1){
+        if (tentativa > 10 || tentativa < 1) {
             TextInputEditNumeroRandom.setError(getString(R.string.Intervalor_numero_permitido));
             TextInputEditNumeroRandom.requestFocus();
             return;
         }
 
-        if(numeroAdivinhar == tentativa) {
+        if (numeroAdivinhar == tentativa) {
             TextViewResultado.setTextColor(Color.GREEN);
             TextViewResultado.setText(R.string.Resposta_Correta);
             numerotentativas++;
             TextViewNumeroTentativas.setTextColor(Color.GREEN);
             TextViewNumeroTentativas.setText(String.valueOf(numerotentativas));
-        }else{
+        } else if (numeroAdivinhar > tentativa) {
             TextViewResultado.setTextColor(Color.RED);
-            TextViewResultado.setText(R.string.Resposta_Errada);
+            TextViewResultado.setText(R.string.Numero_Maior);
+            numerotentativas++;
+            TextViewNumeroTentativas.setTextColor(Color.RED);
+            TextViewNumeroTentativas.setText(String.valueOf(numerotentativas));
+        } else {
+            TextViewResultado.setTextColor(Color.RED);
+            TextViewResultado.setText(R.string.Número_Menor);
             numerotentativas++;
             TextViewNumeroTentativas.setTextColor(Color.RED);
             TextViewNumeroTentativas.setText(String.valueOf(numerotentativas));
