@@ -1,8 +1,10 @@
 package com.example.adivinhar_numero_aleatorio;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     public void TentarNumero (View view) {
         TextInputEditText TextInputEditNumeroRandom = (TextInputEditText) findViewById(R.id.TextInputEditNumeroRandom);
         TextView TextViewResultado = (TextView) findViewById(R.id.textViewResultado);
-        TextView TextViewNumeroTentativas = (TextView) findViewById(R.id.textViewNumeroTentativas);
+        final TextView TextViewNumeroTentativas = (TextView) findViewById(R.id.textViewNumeroTentativas);
 
         String strTentativa = TextInputEditNumeroRandom.getText().toString();
 
@@ -70,6 +72,26 @@ public class MainActivity extends AppCompatActivity {
             numerotentativas++;
             TextViewNumeroTentativas.setTextColor(Color.GREEN);
             TextViewNumeroTentativas.setText(String.valueOf(numerotentativas));
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Novo jogo");
+            builder.setMessage("Quer jogar novamente?");
+            builder.setCancelable(false);
+            builder.setPositiveButton("sim", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    novoJogo();
+                    TextViewNumeroTentativas.setText("Tentativas: 0");
+                    TextViewNumeroTentativas.setText("");
+                }
+            });
+            builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });
+            builder.show();
         } else if (numeroAdivinhar > tentativa) {
             TextViewResultado.setTextColor(Color.RED);
             TextViewResultado.setText(R.string.Numero_Maior);
@@ -83,5 +105,10 @@ public class MainActivity extends AppCompatActivity {
             TextViewNumeroTentativas.setTextColor(Color.RED);
             TextViewNumeroTentativas.setText(String.valueOf(numerotentativas));
         }
+    }
+
+    private void novoJogo() {
+        numeroAdivinhar = NumerosAleatorios.proximoNumero();
+        numerotentativas = 0;
     }
 }
